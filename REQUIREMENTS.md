@@ -125,12 +125,12 @@ Extends Supabase's built-in `auth.users` table.
 - [x] Project setup: Vite + React + TypeScript + Tailwind
 - [x] Supabase project creation, schema, RLS policies
 - [x] GitHub Actions deploy to GitHub Pages
-- [ ] Auth: login page for owners, guest browsing without login
-- [ ] Book list view (all guests can see)
-- [ ] Book detail page (title, author, cover, description, ownership, reading status, availability)
-- [ ] Add / edit / delete books (owners only)
-- [ ] Mark a book as lent out, to whom (owners only)
-- [ ] Mark a book as returned (owners only)
+- [x] Auth: login page for owners, guest browsing without login
+- [x] Book list view (all guests can see)
+- [x] Book detail page (title, author, cover, description, ownership, reading status, availability)
+- [x] Add / edit / delete books (owners only)
+- [x] Mark a book as lent out, to whom (owners only)
+- [x] Mark a book as returned (owners only)
 - [ ] Reading status per owner per book
 
 ### Phase 2

@@ -11,19 +11,19 @@ export default function Navbar() {
   }
 
   return (
-    <header className="border-b border-stone-200 bg-white">
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
-        <Link to="/" className="text-xl font-bold tracking-tight text-stone-900">
+    <header className="sticky top-0 z-10 border-b border-stone-200/70 bg-white/85 backdrop-blur-md">
+      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
+        <Link to="/" className="text-base font-bold tracking-tight text-stone-900">
           TTLibrary
         </Link>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           {isOwner ? (
             <>
-              <span className="text-sm text-stone-500">{profile?.display_name}</span>
+              <span className="text-xs text-stone-400">{profile?.display_name}</span>
               <button
                 onClick={handleSignOut}
-                className="rounded-lg border border-stone-200 px-3 py-1.5 text-sm text-stone-600 hover:bg-stone-50"
+                className="text-sm text-stone-500 transition-colors hover:text-stone-900"
               >
                 Sign out
               </button>
@@ -31,7 +31,7 @@ export default function Navbar() {
           ) : (
             <Link
               to="/login"
-              className="rounded-lg border border-stone-200 px-3 py-1.5 text-sm text-stone-600 hover:bg-stone-50"
+              className="text-sm text-stone-500 transition-colors hover:text-stone-900"
             >
               Owner login
             </Link>

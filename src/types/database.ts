@@ -19,6 +19,8 @@ export interface Book {
   description: string | null
   genre: string[] | null
   published_year: number | null
+  language: string | null
+  country: string | null
   added_by: string
   created_at: string
 }
@@ -33,6 +35,8 @@ export interface ReadingStatusRow {
   book_id: string
   profile_id: string
   status: ReadingStatusEnum
+  rating: number | null
+  review: string | null
   updated_at: string
 }
 
