@@ -1,14 +1,13 @@
 // This file will be replaced with auto-generated types from Supabase CLI once the schema is set up.
 // Run: npx supabase gen types typescript --project-id <your-project-id> > src/types/database.ts
 
-export type Ownership = 'his' | 'hers' | 'both'
-export type ReadingStatus = 'not_read' | 'want_to_read' | 'reading' | 'read'
+export type ReadingStatusEnum = 'not_read' | 'want_to_read' | 'reading' | 'read'
 export type BorrowRequestStatus = 'pending' | 'approved' | 'denied'
 
 export interface Profile {
   id: string
   display_name: string
-  role: 'owner'
+  created_at: string
 }
 
 export interface Book {
@@ -20,16 +19,20 @@ export interface Book {
   description: string | null
   genre: string[] | null
   published_year: number | null
-  ownership: Ownership
   added_by: string
   created_at: string
+}
+
+export interface BookOwner {
+  book_id: string
+  profile_id: string
 }
 
 export interface ReadingStatusRow {
   id: string
   book_id: string
   profile_id: string
-  status: ReadingStatus
+  status: ReadingStatusEnum
   updated_at: string
 }
 
@@ -61,8 +64,9 @@ export interface BorrowRequest {
 export type Database = {
   public: {
     Tables: {
-      profiles: { Row: Profile; Insert: Omit<Profile, 'id'>; Update: Partial<Profile> }
+      profiles: { Row: Profile; Insert: Omit<Profile, 'created_at'>; Update: Partial<Profile> }
       books: { Row: Book; Insert: Omit<Book, 'id' | 'created_at'>; Update: Partial<Book> }
+      book_owners: { Row: BookOwner; Insert: BookOwner; Update: never }
       reading_status: { Row: ReadingStatusRow; Insert: Omit<ReadingStatusRow, 'id' | 'updated_at'>; Update: Partial<ReadingStatusRow> }
       loans: { Row: Loan; Insert: Omit<Loan, 'id'>; Update: Partial<Loan> }
       borrow_requests: { Row: BorrowRequest; Insert: Omit<BorrowRequest, 'id' | 'created_at'>; Update: Partial<BorrowRequest> }

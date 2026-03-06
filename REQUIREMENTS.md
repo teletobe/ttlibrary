@@ -42,9 +42,17 @@ There are exactly two owner accounts (one per partner). Guest access is unauthen
 | description    | text        | Optional, synopsis                     |
 | genre          | text[]      | Optional, array of tags                |
 | published_year | int         | Optional                               |
-| ownership      | enum        | user1 / user2 / `both`                 |
 | added_by       | uuid (FK)   | References profiles.id                 |
 | created_at     | timestamptz | Auto                                   |
+
+### `book_owners`
+
+Many-to-many join table. One row per owner per book. Works for any number of owners.
+
+| Column     | Type          | Notes                  |
+| ---------- | ------------- | ---------------------- |
+| book_id    | uuid (PK, FK) | References books.id    |
+| profile_id | uuid (PK, FK) | References profiles.id |
 
 ### `reading_status`
 
@@ -114,9 +122,9 @@ Extends Supabase's built-in `auth.users` table.
 
 ### MVP (Phase 1)
 
-- [ ] Project setup: Vite + React + TypeScript + Tailwind
-- [ ] Supabase project creation, schema, RLS policies
-- [ ] GitHub Actions deploy to GitHub Pages
+- [x] Project setup: Vite + React + TypeScript + Tailwind
+- [x] Supabase project creation, schema, RLS policies
+- [x] GitHub Actions deploy to GitHub Pages
 - [ ] Auth: login page for owners, guest browsing without login
 - [ ] Book list view (all guests can see)
 - [ ] Book detail page (title, author, cover, description, ownership, reading status, availability)
